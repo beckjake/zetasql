@@ -41,6 +41,7 @@ def _genyacc_impl(ctx):
         inputs = ctx.files.src,
         outputs = outputs,
         mnemonic = "Yacc",
+        use_default_shell_env = True,  # on macOS users need to use homebrew
     )
 
 genyacc = rule(
