@@ -26,7 +26,11 @@
 #include "zetasql/base/arena.h"
 
 #include <assert.h>
+#ifdef __APPLE__
+#include <malloc/malloc.h>
+#else
 #include <malloc.h>
+#endif
 #include <inttypes.h>          // another place uintptr_t might be
 #include <sys/types.h>         // one place uintptr_t might be
 #include <unistd.h>            // last place uintptr_t might be
