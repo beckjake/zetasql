@@ -31,3 +31,17 @@ load("@io_grpc_grpc_java//:repositories.bzl", "grpc_java_repositories")
 
 grpc_java_repositories()
 
+
+new_local_repository(
+    name = "python_library",
+    path = "/usr",
+    build_file_content = """
+cc_library(
+    name = "python27-lib",
+    srcs = ["lib/python2.7/config-x86_64-linux-gnu/libpython2.7.so"],
+    hdrs = ["include/python2.7/*.h"],
+    includes = ["include/python2.7"],
+    visibility = ["//visibility:public"]
+)
+    """,
+)
